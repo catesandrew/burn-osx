@@ -1,0 +1,13 @@
+If you want to re-populate the SVN metadata that can quickly be done by taking your up-to-date clone of leto's repo off of gihub and adding this to your .git/config
+
+[svn-remote "svn"]
+  url = https://burn-osx.svn.sourceforge.net/svnroot/burn-osx
+  fetch = trunk:refs/remotes/trunk
+  
+Then run this command to find the "top commit"
+
+git show origin/master | head -n 1
+
+and put that commit hash into a file .git/refs/remotes/trunk (obviously replace the has with the one from the above command)
+
+echo d4a448fc8f9ee9d5869c14c582e4c2bb26415790 > .git/refs/remotes/trunk
